@@ -1,11 +1,6 @@
 <script setup>
 import { Button } from '@/components/ui/button'
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/ui/tooltip'
+import LinkWithTooltip from '@/components/LinkWithTooltip.vue'
 </script>
 
 <template>
@@ -14,30 +9,8 @@ import {
             <p class="bg-slate-300 p-8">This is About page</p>
         </div>
         <div class="grid gap-2 justify-center grid-flow-col">
-            <RouterLink to="/">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <Button variant="outline"> Home </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Go to Home page</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </RouterLink>
-            <RouterLink to="/about">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <Button variant="outline"> About </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Go to About page</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </RouterLink>
+            <LinkWithTooltip to="/" tooltip="home">Home</LinkWithTooltip>
+            <LinkWithTooltip to="/about" tooltip="about">About</LinkWithTooltip>
         </div>
     </div>
 </template>

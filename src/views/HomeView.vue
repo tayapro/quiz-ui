@@ -1,57 +1,21 @@
 <script setup>
 import { Button } from '@/components/ui/button'
 import ThemeToggler from '@/components/ThemeToggler.vue'
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/ui/tooltip'
+import LinkWithTooltip from '@/components/LinkWithTooltip.vue'
 </script>
 
 <template>
-    <div class="h-dvh">
-        <div class="h-[10%] flex justify-center items-center">
-            <h2 class="text-muted-foreground">Home page</h2>
+    <div class="h-dvh bg-cyan-800">
+        <div class="h-[20%] flex justify-center items-center">
+            <h1 class="text-5xl">Welcome to Quizward!</h1>
         </div>
 
         <div class="grid gap-2 justify-center grid-flow-col">
-            <RouterLink to="/">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <Button variant="outline"> Home </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Go to Home page</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </RouterLink>
-            <RouterLink to="/about">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <Button variant="outline"> About </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Go to About page</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </RouterLink>
-            <RouterLink to="/protected">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <Button variant="outline"> Protected </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Go to Protected page</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </RouterLink>
+            <LinkWithTooltip to="/" tooltip="home">Home</LinkWithTooltip>
+            <LinkWithTooltip to="/about" tooltip="about">About</LinkWithTooltip>
+            <LinkWithTooltip to="/protected" tooltip="protected"
+                >Protected</LinkWithTooltip
+            >
             <ThemeToggler />
         </div>
     </div>
