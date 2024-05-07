@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "quizwa492b4918",
+    "resourceNameTruncated": "quizwa4587e507",
     "userPoolName": "quizward",
     "autoVerifiedAttributes": [
       "email"
@@ -25,16 +25,18 @@
       "Requires Uppercase"
     ],
     "requiredAttributes": [
-      "nickname"
+      "email",
+      "nickname",
+      "name"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "quizwa492b4918_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "quizwa4587e507_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "492b4918",
+    "sharedId": "4587e507",
     "resourceName": "quizward",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",

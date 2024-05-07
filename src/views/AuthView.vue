@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 </script>
 
 <template>
-    <div class="h-[20%] flex justify-center items-center">
-        <h1 class="text-5xl">Landing page</h1>
+    <div class="flex justify-center items-center">
+        <h1 class="text-5xl">Auth page</h1>
     </div>
 </template>
