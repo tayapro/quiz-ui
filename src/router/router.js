@@ -4,6 +4,7 @@ import AboutView from '@/views/AboutView.vue'
 import QuizView from '@/views/QuizView.vue'
 import ProtectedView from '@/views/ProtectedView.vue'
 import AuthView from '@/views/AuthView.vue'
+import QuizStart from '@/views/QuizStart.vue'
 
 const routes = [
     { path: '/', component: HomeView },
@@ -11,6 +12,7 @@ const routes = [
     { path: '/quiz', component: QuizView },
     { path: '/auth', component: AuthView },
     { path: '/protected', component: ProtectedView },
+    { path: '/quiz-start', component: QuizStart },
 ]
 
 export const router = createRouter({

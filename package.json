@@ -11,6 +11,7 @@
   "dependencies": {
     "@aws-amplify/auth": "^6.2.2",
     "@aws-amplify/ui-vue": "^4.2.6",
+    "@vee-validate/zod": "^4.12.8",
     "@vueuse/core": "^10.9.0",
     "aws-amplify": "^6.2.0",
     "axios": "^1.6.8",
@@ -20,9 +21,10 @@
     "radix-vue": "^1.7.3",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "vee-validate": "^4.12.7",
+    "vee-validate": "^4.12.8",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

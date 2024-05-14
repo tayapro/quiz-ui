@@ -14,6 +14,9 @@ import LinkWithTooltip from '@/components/LinkWithTooltip.vue'
                 <LinkWithTooltip to="/auth" tooltip="auth">
                     Auth
                 </LinkWithTooltip>
+                <LinkWithTooltip to="/quiz-start" tooltip="quiz-start">
+                    Quiz start
+                </LinkWithTooltip>
                 <LinkWithTooltip to="/quiz" tooltip="quiz">
                     Quiz
                 </LinkWithTooltip>
