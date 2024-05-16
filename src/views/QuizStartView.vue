@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
@@ -21,7 +20,12 @@ import {
     FormMessage,
 } from '@/components/ui/form'
 
+import { useStore } from '../store/quizStore'
+import { useRouter } from 'vue-router'
+
+const store = useStore()
 const quiz_categories = ['Apples', 'Fruits', 'Sausage', 'Products']
+const router = useRouter()
 
 const formSchema = toTypedSchema(
     z.object({
@@ -36,24 +40,30 @@ const { handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-    console.log(values.category)
-    console.log(values.index)
     console.log(
-        'You submitted the following values:',
+        'You submitted the following value:',
         JSON.stringify(values, null, 2)
     )
+
+    store.category = values.category
+    console.log('QuizStart: store category - ', store.category)
+
+    router.push({ path: '/quiz' })
 })
 </script>
 
 <template>
     <div class="grid h-full place-items-center">
-        <div class="grid gap-5">
-            <form class="w-2/3 space-y-6" @submit="onSubmit">
+        <div class="grid gap-5 w-1/3">
+            <form class="grid space-y-5" @submit="onSubmit">
                 <FormField v-slot="{ componentField }" name="category">
                     <FormItem>
                         <FormLabel>Quiz topics</FormLabel>
 
-                        <Select v-bind="componentField">
+                        <Select
+                            class="grid space-x-5 space-y-5"
+                            v-bind="componentField"
+                        >
                             <FormControl>
                                 <SelectTrigger>
                                     <SelectValue
@@ -70,9 +80,7 @@ const onSubmit = handleSubmit((values) => {
                                         ) in quiz_categories"
                                         :key="index"
                                     >
-                                        <span @click="apiApi(index)">
-                                            {{ category }}</span
-                                        >
+                                        <span>{{ category }}</span>
                                     </SelectItem>
                                 </SelectGroup>
                             </SelectContent>
@@ -81,7 +89,7 @@ const onSubmit = handleSubmit((values) => {
                     </FormItem>
                 </FormField>
 
-                <Button type="submit"> Submit </Button>
+                <Button type="submit">Submit</Button>
             </form>
         </div>
     </div>

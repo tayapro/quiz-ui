@@ -1,13 +1,19 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
 
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { useStore } from '../store/quizStore'
+
+const store = useStore()
+const router = useRouter()
 
 const question = ref('')
 const answers = ref([])
+let quest_counter = ref(1)
 let answer_index = -1
 
 async function getQuiz() {
@@ -31,6 +37,12 @@ async function onSubmit() {
         }
     )
     console.log('From handler: ', res)
+
+    quest_counter.value++
+    console.log('quest_counter:', quest_counter.value)
+    if (quest_counter.value === 10) {
+        router.push({ path: '/quiz' })
+    }
 }
 
 function onOpt(index) {
@@ -39,6 +51,7 @@ function onOpt(index) {
 
 onMounted(async () => {
     await getQuiz()
+    console.log(console.log('QuizView: store category - ', store.category))
 })
 </script>
 
