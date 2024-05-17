@@ -17,9 +17,6 @@ import LinkWithTooltip from '@/components/LinkWithTooltip.vue'
                 <LinkWithTooltip to="/quiz-start" tooltip="quiz-start">
                     Quiz start
                 </LinkWithTooltip>
-                <LinkWithTooltip to="/quiz" tooltip="quiz">
-                    Quiz
-                </LinkWithTooltip>
             </div>
             <div class="grid justify-end">
                 <ThemeToggler />

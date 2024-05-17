@@ -22,6 +22,7 @@ import {
 
 import { useStore } from '../store/quizStore'
 import { useRouter } from 'vue-router'
+import apiQuiz from '@/api/quiz.js'
 
 const store = useStore()
 const quiz_categories = ['Apples', 'Fruits', 'Sausage', 'Products']
@@ -39,14 +40,16 @@ const { handleSubmit } = useForm({
     validationSchema: formSchema,
 })
 
-const onSubmit = handleSubmit((values) => {
-    console.log(
-        'You submitted the following value:',
-        JSON.stringify(values, null, 2)
-    )
+const onSubmit = handleSubmit(async (values) => {
+    // console.log(
+    //     'You submitted the following value:',
+    //     JSON.stringify(values, null, 2)
+    // )
 
     store.category = values.category
-    console.log('QuizStart: store category - ', store.category)
+    // console.log('QuizStart: store category - ', store.category)
+    const res = await apiQuiz.startQuiz()
+    store.quiz_id = res.quiz_id
 
     router.push({ path: '/quiz' })
 })
